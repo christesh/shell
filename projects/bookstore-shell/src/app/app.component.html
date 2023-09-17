@@ -1,0 +1,89 @@
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <h4 class="navbar-brand">سامانه جامع کارگزاری آگاه</h4>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav" style="color: crimsonn;">
+        <li *ngIf="!login" class="nav-item">
+          <button type="button" class="btn btn-default" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            ورود
+          </button>
+        </li>
+        <li *ngIf="login" class="nav-item">
+          <!-- show profile-->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="books/list"></a>
+        </li>
+        <!-- <li *ngFor="let remote of remotes"><a [routerLink]="remote.routePath">{{remote.displayName}}</a></li> -->
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+    <div class="menu">
+      <ul class="navbar-nav">
+        <li class="mainMenu" *ngFor="let menu of mainMenu">
+          <a class="nav-link menuItem" [routerLink]="menu.routePath">{{menu.title}}</a>
+        </li>
+      </ul>
+      <div class="accordion" id="accordionContainer">
+        <div class="accordion-item" *ngFor="let mfe of mfeMenu; let i = index">
+          <h2 class="accordion-header" [id]="'heading' + i">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">
+              {{mfe.mfeTitle}}
+            </button>
+          </h2>
+          <div [id]="'collapse' + i" class="accordion-collapse collapse " [attr.aria-labelledby]="'heading' + i"
+            data-bs-parent="#accordionContainer">
+            <div class="accordion-body">
+              <ul class="navbar-nav">
+                <li class="nav-item" *ngFor="let menu of mfe.menu">
+                  <a class="nav-link menuItem" [routerLink]="menu.routePath">{{menu.title}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</body>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="direction: rtl;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ورود به سیستم</h5>
+          
+        </div>
+        <div class="modal-body">
+          <div class="md-form">
+            <label data-error="wrong" data-success="right" for="defaultForm-email">نام کاربری</label>
+            <input type="email" id="defaultForm-email" class="form-control validate">          
+          </div>
+  
+          <div class="md-form">
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">گذر واژه </label>
+            <input type="password" id="defaultForm-pass" class="form-control validate">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">انصراف</button>
+          <button type="button" class="btn btn-primary">ورود</button>
+        </div>
+      </div>
+    </div>
+  </div>

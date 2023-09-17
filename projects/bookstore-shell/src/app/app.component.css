@@ -1,0 +1,49 @@
+.container-fluid {
+    position: -webkit-sticky;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: first baseline;
+    padding: 0;
+}
+
+.menu {
+    margin: 0;
+    width: 300px;
+    padding: 10px;
+    height: 100vh;
+    background-color:rgb(74 129 155);
+}
+
+.content {
+    margin: 10px;
+}
+
+body {
+    direction: rtl;
+}
+a.menuItem{
+    border-bottom: 1px solid rgba(220, 220, 220, 0.352);
+}
+a.menuItem:focus{
+    color: blue;
+    font-weight: 700;
+    border-left: 3px solid blue;
+}
+.navbar{
+    background-color: rgb(222, 223, 224);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.mainMenu{
+    margin-right: -40px;
+    background-color: white;
+    padding-right: 10px;
+
+    
+}
+.accordion-item:first-of-type {
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+}

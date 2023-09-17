@@ -1,0 +1,36 @@
+{
+    "auth-mfe": {
+        "remoteEntry": "http://localhost:4200/remoteEntry.js",
+        "exposedModule": "./Module",
+        "displayName": "آتی",
+        "routePath": "auth",
+        "ngModuleName": "AuthModule",
+        "menu": [
+            {
+                "title": "نمای بازار",
+                "routePath": "auth/facade"
+            },
+            {
+                "title": "گزارش سفارشات",
+                "routePath": "auth/report"
+            }
+        ]
+    },
+    "book-mfe": {
+        "remoteEntry": "http://localhost:4300/remoteEntry.js",
+        "exposedModule": "./Module",
+        "displayName": "اختیار",
+        "routePath": "books",
+        "ngModuleName": "BookModule",
+        "menu": [
+            {
+                "title": "نمای بازار",
+                "routePath": "books/facade"
+            },
+            {
+                "title": "گزارش سفارشات",
+                "routePath": "books/report"
+            }
+        ]
+    }
+}
